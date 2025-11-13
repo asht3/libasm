@@ -1,3 +1,5 @@
-*.o
+# Object files
+obj/
 
+# Executable
 my_libasm

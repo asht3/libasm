@@ -7,8 +7,7 @@ TARGET = my_libasm
 SRCS = my_strlen.S main.c
 
 OBJ_DIR = obj
-OBJS = $(patsubst src/%.c, $(OBJ_DIR)/%.o, $(SRCS))
-# OBJS = $(SRCS:.c=.o)
+OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 OBJS := $(OBJS:.S=.o)
 
 $(TARGET): $(OBJS)
@@ -17,16 +16,13 @@ $(TARGET): $(OBJS)
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
-$(OBJ_DIR)/%.o: src/%.c | $(OBJ_DIR)
+$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# %.o: %.c
-# 	$(CC) $(CFLAGS) -c $< -o $@
-
-%.o: %.S
+$(OBJ_DIR)/%.o: %.S | $(OBJ_DIR)
 	$(NASM) $(NASMFLAGS) $< -o $@
 
 .PHONY: clean
 
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -rf $(OBJ_DIR) $(TARGET)
