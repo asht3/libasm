@@ -4,6 +4,20 @@
 ## Task
 TODO - What is the problem? And where is the challenge?
 
+- strlen      -> my_strlen
+- strchr      -> my_strchr
+- memset      -> my_memset
+- memcpy      -> my_memcpy
+- strcmp      -> my_strcmp
+- memmove     -> my_memmove
+
+- strncmp     -> my_strncmp
+- strcasecmp  -> my_strcasecmp
+- index       -> my_index
+
+- read        -> my_read
+- write       -> my_write
+
 ## Description
 TODO - How have you solved the problem?
 
