@@ -1,4 +1,4 @@
-; int my_strlen(const char* str_1)
+; size_t my_strlen(const char* str_1)
 
 global my_strlen
 section .text

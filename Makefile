@@ -4,7 +4,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g
 
 TARGET = my_libasm
-SRCS = my_strlen.S my_strchr.S main.c
+SRCS = my_strlen.S my_strchr.S my_memset.S main.c
 
 OBJ_DIR = obj
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
