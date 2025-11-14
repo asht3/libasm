@@ -4,12 +4,6 @@ global my_memset
 section .text
 
 my_memset:
-; ptr -> rdi, value -> esi, num -> rdx
-
-;    for (size_t i = 0; i < num; ++i)
-;        p[i] = v
-;    return ptr;
-
     xor rax, rax    ; index = 0
 
 .loop:
