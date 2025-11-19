@@ -27,3 +27,22 @@ void test_my_memset() {
         printf("my_memset test failed\n");
     }
 }
+
+void test_my_memcpy() {
+    char dest1[20] = "Hello, World!";
+    char dest2[20] = "Hello, World!";
+
+    memcpy(dest1, "Test", 4);
+    my_memcpy(dest2, "Test", 4);
+
+    if (memcmp(dest1, dest2, sizeof(dest1)) != 0) {
+        printf("memcpy result: %s \nmy_memcpy result: %s\n", dest1, dest2);
+        printf("my_memcpy test failed\n");
+    }
+
+    // if (memcpy(dest1, "Test", 4 * sizeof(char)) != my_memcpy(dest2, "Test", 4 * sizeof(char))) {
+    //     // print my_memcpy result
+    //     printf("memcpy result: %s \nmy_memcpy result: %s\n", dest1, dest2);
+    //     printf("my_memcpy test failed\n");
+    // }
+}

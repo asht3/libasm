@@ -13,10 +13,13 @@
 size_t my_strlen(const char* str_1);
 char* my_strchr(const char* str, int search_char);
 void* my_memset(void* ptr, int value, size_t num);
+void* my_memcpy(void *dest, const void *src, size_t num_bytes);
 
 // Functions that test assembly implementations
 void test_my_strlen();
 void test_my_strchr();
 void test_my_memset();
+void test_my_memcpy();
+
 
 #endif
