@@ -23,19 +23,22 @@ void test_my_strchr() {
 }
 
 void test_my_memset() {
-    if (memset(hello_world + 5, '/', 3 * sizeof(char)) != my_memset(hello_world + 5, '/', 3 * sizeof(char))) {
+    char* hello_world_cpy_1 = hello_world;
+    char* hello_world_cpy_2 = hello_world;
+
+    if (memset(hello_world_cpy_1 + 5, '/', 3 * sizeof(char)) != my_memset(hello_world_cpy_2 + 5, '/', 3 * sizeof(char))) {
         printf("my_memset test failed\n");
     }
 }
 
 void test_my_memcpy() {
-    char dest1[20] = "Hello, World!";
-    char dest2[20] = "Hello, World!";
+    char* dest1 = hello_world;
+    char* dest2 = hello_world;
 
-    memcpy(dest1, "Test", 4);
-    my_memcpy(dest2, "Test", 4);
+    memcpy(dest1, "Test", sizeof(char) * 4);
+    my_memcpy(dest2, "Test", sizeof(char) * 4);
 
-    if (memcmp(dest1, dest2, sizeof(dest1)) != 0) {
+    if (memcmp(dest1, dest2, strlen(dest1)) != 0) {
         printf("memcpy result: %s \nmy_memcpy result: %s\n", dest1, dest2);
         printf("my_memcpy test failed\n");
     }
