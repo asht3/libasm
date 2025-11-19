@@ -14,8 +14,7 @@ int main(void) {
     test_my_strchr();
     test_my_memset();
     test_my_memcpy();
-
-    printf("All tests passed!\n");
-
+    test_my_strcmp();
+    
     return 0;
 }
