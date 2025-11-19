@@ -7,12 +7,12 @@ my_memset:
     xor rax, rax    ; index = 0
 
 .loop:
-    cmp rax, rdx    ; compare index to num
-    je .endloop
+    cmp rax, rdx                ; compare index to num
+    je .endloop                 ; jump if index equal to num
     mov byte [rax + rdi], sil   ; store low byte of value 
-    inc rax
-    jmp .loop
+    inc rax                     ; index++
+    jmp .loop                   ; unconditional jump to begining of loop
 
 .endloop:
-    mov rax, rdi    ; return ptr
-    ret
+    mov rax, rdi    ; move ptr to rax to return
+    ret             ; return ptr

@@ -8,7 +8,8 @@ my_strlen:
 .loop:
     cmp byte [rdi + rax], 0    ; compare byte at s + length with 0
     je .endloop                ; exit loop when NULL
-    inc rax
-    jmp .loop
+    inc rax                    ; length++
+    jmp .loop                  ; unconditional jump to begining of loop
+
 .endloop:
-    ret
+    ret                        ; return length

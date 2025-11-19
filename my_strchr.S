@@ -9,17 +9,17 @@ my_strchr:
 
 .loop:
     mov cl, byte [rdi + rax]    ; load byte at str + length into cl
-    cmp cl, dl                  ; compare loaded byte to seach char
-    je .found
-    test cl, cl                 ; if loaded byte is 0, string is not found (end of string)
-    je .not_found
-    inc rax
-    jmp .loop
+    cmp cl, dl                  ; compare loaded byte to search char
+    je .found                   ; jump to .found if search char is found
+    test cl, cl                 ; test the loaded byte against itself
+    je .not_found               ; if loaded byte is 0, char is not found (end of string)
+    inc rax                     ; length++
+    jmp .loop                   ; unconditional jump to begining of loop
 
 .found:
-    lea rax, [rax + rdi]        ; return &str[index]
-    ret
+    lea rax, [rax + rdi]        ; load address of str[index]
+    ret                         ; return &str[index]
 
 .not_found:
-    xor rax, rax                ; return NULL
-    ret
+    xor rax, rax
+    ret                         ; return NULL
