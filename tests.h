@@ -16,6 +16,7 @@ void* my_memset(void* ptr, int value, size_t num);
 void* my_memcpy(void *dest, const void *src, size_t num_bytes);
 int my_strcmp(const char* str_1, const char* str_2);
 void* my_memmove(void* dest, const void* src, size_t n);
+int my_strncmp(const char* str_1, const char* str_2, int n);
 
 // Functions that test assembly implementations
 void test_my_strlen();
