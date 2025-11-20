@@ -24,11 +24,9 @@ my_strcmp:
     ret
 
 .not_equal: 
-    ; sub eax, edx              ; return (str_1[i] - str_2[i])
     cmp eax, edx
-    jl .less_than
-    jg .greater_than
-    ret
+    jl .less_than               ; if str_1 < str_2
+    jg .greater_than            ; if str_1 > str_2
 
 .less_than:
     mov eax, -1     ; return -1
