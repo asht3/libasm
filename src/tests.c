@@ -1,4 +1,4 @@
-#include "tests.h"
+#include "../include/tests.h"
 
 // Global variables
 char hello_world[13] = "Hello, World!";

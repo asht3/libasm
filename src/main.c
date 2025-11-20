@@ -1,4 +1,4 @@
-#include "tests.h"
+#include "../include/tests.h"
 
 // Incoming Argument Registers: rdi, rsi, rdx, r10, r8, r9
 //  (registers are in order of importance... they are different that X86-32 FYI)
