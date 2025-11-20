@@ -71,3 +71,26 @@ void test_my_strcmp() {
         printf("my_strcmp unequal strings test failed\n");
     }
 }
+
+void test_my_memmove() {
+    char buffer1[20] = {0};
+    char buffer2[20] = {0};
+
+    strcpy(buffer1, "Hello, World!");
+    strcpy(buffer2, "Hello, World!");
+    // Overlapping regions
+    my_memmove(buffer1 + 7, buffer1, 6); // Move "Hello," to after "World!"
+    memmove(buffer2 + 7, buffer2, 6);
+    if (memcmp(buffer1, buffer2, strlen(buffer1)) != 0) {
+        printf("my_memmove overlapping test failed\n");
+    }
+
+    // Non-overlapping regions
+    strcpy(buffer1, "Hello, World!");
+    strcpy(buffer2, "Hello, World!");
+    my_memmove(buffer1 + 13, buffer1, 6);
+    memmove(buffer2 + 13, buffer2, 6);
+    if (memcmp(buffer1, buffer2, 20) != 0) {
+        printf("my_memmove non-overlapping test failed\n");
+    }
+}
