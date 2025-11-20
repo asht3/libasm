@@ -25,5 +25,6 @@ void test_my_memset();
 void test_my_memcpy();
 void test_my_strcmp();
 void test_my_memmove();
+void test_my_strncmp();
 
 #endif

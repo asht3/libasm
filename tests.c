@@ -94,3 +94,28 @@ void test_my_memmove() {
         printf("my_memmove non-overlapping test failed\n");
     }
 }
+
+void test_my_strncmp() {
+    if (strncmp(hello_world, "Hello, World!", 5) != my_strncmp(hello_world, "Hello, World!", 5)) {
+        printf("my_strncmp equal first n characters test failed\n");
+    }
+
+    if (strncmp("Apple", "Apricot", 2) != my_strncmp("Apple", "Apricot", 2)) {
+        printf("my_strncmp unequal strings first n characters are the same test failed\n");
+    }
+
+    if (strncmp("Banana", "Bandana", 4) != my_strncmp("Banana", "Bandana", 4)) {
+        printf("strncmp: %d, my_strncmp: %d \n", strncmp("Banana", "Bandana", 4), my_strncmp("Banana", "Bandana", 4));
+        printf("my_strncmp unequal strings first n characters are different test failed\n");
+    }
+
+    if (strncmp(empty_str, "Band", 1) != my_strncmp(empty_str, "Band", 1)) {
+        printf("strncmp: %d, my_strncmp: %d \n", strncmp(empty_str, "Band", 1), my_strncmp(empty_str, "Band", 1));
+        printf("my_strncmp one empty string test failed\n");
+    }
+
+    if (strncmp(empty_str, empty_str, 1) != my_strncmp(empty_str, empty_str, 1)) {
+        printf("strncmp: %d, my_strncmp: %d \n", strncmp(empty_str, empty_str, 1), my_strncmp(empty_str, empty_str, 1));
+        printf("my_strncmp two empty strings test failed\n");
+    }
+}

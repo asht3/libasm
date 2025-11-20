@@ -5,19 +5,14 @@ global my_strncmp
 section .text
 
 my_strncmp:
-    ;test rdi, rdi
-    ;jz .ret_zero
-    ;test rsi, rsi
-    ;jz .ret_zero
-
-    xor rax, rax
+    xor rcx, rcx
 
 .loop:
-    cmp rax, rdx              ; for (int i = 0; i < n; i++)
+    cmp rcx, rdx              ; for (int i = 0; i < n; i++)
     jge .ret_zero             ; return 0
 
-    movzx eax, byte [rdi]     ; load str_1[i] to eax (zero extended)
-    movzx edx, byte [rsi]     ; load str_2[i] to edx (zero extended)
+    movzx r8d, byte [rdi]     ; load str_1[i] to eax (zero extended)
+    movzx r9d, byte [rsi]     ; load str_2[i] to edx (zero extended)
 
     or al, dl                 ; if (str1[i] == '\0' && str2[i] == '\0')
     jz .ret_zero
@@ -29,7 +24,9 @@ my_strncmp:
     jz .ret_one
 
     cmp al, dl                ; compare bytes
-    jl .ret_neg_one           ; if (str1[i] < str2[i]) 
+    jl .ret_neg_one           ; if (str1[i] < str2[i])
+
+    cmp al, dl
     jg .ret_one               ; if (str1[i] > str2[i]) 
     
     jmp .loop

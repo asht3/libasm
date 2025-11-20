@@ -16,6 +16,8 @@ int main(void) {
     test_my_memcpy();
     test_my_strcmp();
     test_my_memmove();
+    test_my_strncmp();
+
     
     return 0;
 }
