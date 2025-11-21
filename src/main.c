@@ -18,6 +18,7 @@ int main(void) {
     test_my_memmove();
     test_my_strncmp();
     test_my_strcasecmp();
+    test_my_index();
     
     return 0;
 }

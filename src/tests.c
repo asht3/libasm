@@ -140,3 +140,9 @@ void test_my_strcasecmp() {
         printf("my_strcasecmp unequal strings (s1 > s2) test failed\n");
     }
 }
+
+void test_my_index() {
+    if (my_index(hello_world, 'o') != index(hello_world, 'o')) {
+        printf("my_index test failed\n");
+    }
+}
