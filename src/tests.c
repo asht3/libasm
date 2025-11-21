@@ -63,12 +63,12 @@ void test_my_strcmp() {
     // }
 
     if (strcmp("A", "B") != my_strcmp("A", "B")) {
-        printf("my_strcmp unequal single char strings test failed\n");
+        printf("my_strcmp unequal strings (s1 < s2) test failed\n");
     }
 
     if (strcmp("World", "Hello") != my_strcmp("World", "Hello")) {
         printf("strcmp: %d, my_strcmp: %d \n", strcmp("World", "Hello"), my_strcmp("World", "Hello"));
-        printf("my_strcmp unequal strings test failed\n");
+        printf("my_strcmp unequal strings (s1 > s2) test failed\n");
     }
 }
 
@@ -117,5 +117,26 @@ void test_my_strncmp() {
     if (strncmp(empty_str, empty_str, 1) != my_strncmp(empty_str, empty_str, 1)) {
         printf("strncmp: %d, my_strncmp: %d \n", strncmp(empty_str, empty_str, 1), my_strncmp(empty_str, empty_str, 1));
         printf("my_strncmp two empty strings test failed\n");
+    }
+}
+
+void test_my_strcasecmp() {
+    if (strcasecmp(hello_world, "hello, world!") != my_strcasecmp(hello_world, "hello, world!")) {
+        printf("strcmp: %d, my_strcmp: %d \n", strcasecmp(hello_world, "hello, world!"), my_strcasecmp(hello_world, "hello, world!"));
+        printf("my_strcasecmp equal strings (upper and lower case) test failed\n");
+    }
+
+    if (strcasecmp(hello_world, hello_world) != my_strcasecmp(hello_world, hello_world)) {
+        printf("strcmp: %d, my_strcmp: %d \n", strcasecmp(hello_world, hello_world), my_strcasecmp(hello_world, hello_world));
+        printf("my_strcmp equal strings test failed\n");
+    }
+
+    if (strcasecmp("A", "B") != my_strcasecmp("A", "B")) {
+        printf("my_strcasecmp unequal strings (s1 < s2) test failed\n");
+    }
+
+    if (strcasecmp("World", "Hello") != my_strcasecmp("World", "Hello")) {
+        printf("strcmp: %d, my_strcmp: %d \n", strcasecmp("World", "Hello"), my_strcasecmp("World", "Hello"));
+        printf("my_strcasecmp unequal strings (s1 > s2) test failed\n");
     }
 }

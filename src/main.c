@@ -17,7 +17,7 @@ int main(void) {
     test_my_strcmp();
     test_my_memmove();
     test_my_strncmp();
-
+    test_my_strcasecmp();
     
     return 0;
 }
