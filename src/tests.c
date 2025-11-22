@@ -182,3 +182,46 @@ void test_my_read() {
 
     close(fd);
 }
+
+void test_my_write() {
+    const char* filename = "test_write_file.txt";
+    const char* test_content = "This is a test file for my_write function.\n";
+
+    // Write the content using my_write
+    int fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+    if (fd < 0) {
+        perror("Failed to open test write file");
+        return;
+    }
+
+    ssize_t bytes_written = my_write(fd, test_content, strlen(test_content));
+    if (bytes_written < 0) {
+        perror("my_write failed");
+        close(fd);
+        return;
+    }
+
+    close(fd);
+
+    // Read back the content to verify
+    char buffer[100] = {0};
+    fd = open(filename, O_RDONLY);
+    if (fd < 0) {
+        perror("Failed to open test write file for reading");
+        return;
+    }
+
+    ssize_t bytes_read = read(fd, buffer, sizeof(buffer) - 1);
+    if (bytes_read < 0) {
+        perror("read failed");
+        close(fd);
+        return;
+    }
+    buffer[bytes_read] = '\0';
+
+    if (strcmp(buffer, test_content) != 0) {
+        printf("my_write test failed. Expected: %s, Got: %s\n", test_content, buffer);
+    }
+
+    close(fd);
+}

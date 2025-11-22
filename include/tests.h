@@ -19,6 +19,7 @@ int my_strncmp(const char* str_1, const char* str_2, int n);
 int my_strcasecmp(const char* str_1, const char* str_2);
 char* my_index(const char* str, int search_char);
 ssize_t my_read(int fd, void* buf, size_t count);
+ssize_t my_write(int fd, const void* buf, size_t count);
 
 // Functions that test assembly implementations
 void test_my_strlen();
@@ -31,5 +32,6 @@ void test_my_strncmp();
 void test_my_strcasecmp();
 void test_my_index();
 void test_my_read();
+void test_my_write();
 
 #endif

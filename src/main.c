@@ -20,6 +20,7 @@ int main(void) {
     test_my_strcasecmp();
     test_my_index();
     test_my_read();
+    test_my_write();
     
     return 0;
 }

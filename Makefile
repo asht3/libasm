@@ -14,6 +14,7 @@ SRCS = src/asm/my_strlen.S \
 		src/asm/my_strcasecmp.S \
 		src/asm/my_index.S \
 		src/asm/my_read.S \
+		src/asm/my_write.S \
 		src/main.c \
 		src/tests.c
 
