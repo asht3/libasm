@@ -146,3 +146,39 @@ void test_my_index() {
         printf("my_index test failed\n");
     }
 }
+
+void test_my_read() {
+    const char* filename = "test_file.txt";
+    const char* test_content = "This is a test file for my_read function.\n";
+
+    // Create and write to the test file
+    FILE* file = fopen(filename, "w");
+    if (!file) {
+        perror("Failed to create test file");
+        return;
+    }
+    fputs(test_content, file);
+    fclose(file);
+
+    // Read the content using my_read
+    char buffer[100] = {0};
+    int fd = open(filename, O_RDONLY);
+    if (fd < 0) {
+        perror("Failed to open test file");
+        return;
+    }
+
+    ssize_t bytes_read = my_read(fd, buffer, sizeof(buffer) - 1);
+    if (bytes_read < 0) {
+        perror("my_read failed");
+        close(fd);
+        return;
+    }
+    buffer[bytes_read] = '\0';
+
+    if (strcmp(buffer, test_content) != 0) {
+        printf("my_read test failed. Expected: %s, Got: %s\n", test_content, buffer);
+    }
+
+    close(fd);
+}

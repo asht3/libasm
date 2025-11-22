@@ -19,6 +19,7 @@ int main(void) {
     test_my_strncmp();
     test_my_strcasecmp();
     test_my_index();
+    test_my_read();
     
     return 0;
 }
