@@ -16,7 +16,7 @@ SRCS = src/asm/my_strlen.S \
 		src/asm/my_read.S \
 		src/asm/my_write.S \
 		src/main.c \
-		src/tests.c
+		src/tests.c \
 
 OBJ_DIR = obj
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))

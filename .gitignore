@@ -6,3 +6,4 @@ my_libasm
 
 # Test output
 *.txt
+libasm_test.c

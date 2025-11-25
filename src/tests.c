@@ -66,8 +66,8 @@ void test_my_strcmp() {
         printf("my_strcmp unequal strings (s1 < s2) test failed\n");
     }
 
-    if (my_strcmp("World", "Hello") > 0) {
-        // printf("strcmp: %d, my_strcmp: %d \n", strcmp("World", "Hello"), my_strcmp("World", "Hello"));
+    if (my_strcmp("World", "Hello") <= 0) {
+        printf("my_strcmp: %d \n", my_strcmp("World", "Hello"));
         printf("my_strcmp unequal strings (s1 > s2) test failed\n");
     }
 }
