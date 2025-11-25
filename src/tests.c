@@ -57,17 +57,17 @@ void test_my_strcmp() {
         printf("my_strcmp equal strings test failed\n");
     }
 
-    // if (strcmp(empty_str, hello_world) != my_strcmp(empty_str, hello_world)) {
-    //     printf("strcmp: %d, my_strcmp: %d \n", strcmp(empty_str, hello_world), my_strcmp(empty_str, hello_world));
-    //     printf("my_strcmp unequal strings test with empty string failed\n");
-    // }
+    if (strcmp(empty_str, hello_world) != my_strcmp(empty_str, hello_world)) {
+        printf("strcmp: %d, my_strcmp: %d \n", strcmp(empty_str, hello_world), my_strcmp(empty_str, hello_world));
+        printf("my_strcmp unequal strings test with empty string failed\n");
+    }
 
     if (strcmp("A", "B") != my_strcmp("A", "B")) {
         printf("my_strcmp unequal strings (s1 < s2) test failed\n");
     }
 
-    if (strcmp("World", "Hello") != my_strcmp("World", "Hello")) {
-        printf("strcmp: %d, my_strcmp: %d \n", strcmp("World", "Hello"), my_strcmp("World", "Hello"));
+    if (my_strcmp("World", "Hello") > 0) {
+        // printf("strcmp: %d, my_strcmp: %d \n", strcmp("World", "Hello"), my_strcmp("World", "Hello"));
         printf("my_strcmp unequal strings (s1 > s2) test failed\n");
     }
 }

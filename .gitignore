@@ -3,3 +3,7 @@ obj/
 
 # Executable
 my_libasm
+
+# Test output
+*.txt
+test_files/
